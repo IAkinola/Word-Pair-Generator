@@ -2,6 +2,7 @@
 
 A Flutter WordPair Application.
 
+Used to understand the basics of Flutter.
 ## Getting Started
 
 This project is a starting point for a Flutter application.
