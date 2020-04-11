@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
-// import './RowBuild.dart';
 
 class RandomListView extends StatefulWidget {
   @override
@@ -12,7 +11,7 @@ class RandomListView extends StatefulWidget {
 
 class RandomListViewState extends State<RandomListView> {
   final _randomWordPairs = <WordPair>[];
-  final _savedWordPairs = Set<WordPair>();
+  final savedWordPairs = Set<WordPair>();
 
   Widget _buildList() {
     return ListView.builder(
@@ -34,7 +33,7 @@ class RandomListViewState extends State<RandomListView> {
   }
 
   Widget _buildRow(WordPair pair) {
-    final alreadySaved = _savedWordPairs.contains(pair);
+    final alreadySaved = savedWordPairs.contains(pair);
     return ListTile(
       title: Text(
         pair.asPascalCase,
@@ -45,9 +44,9 @@ class RandomListViewState extends State<RandomListView> {
       onTap: () {
         setState(() {
           if (alreadySaved) {
-            _savedWordPairs.remove(pair);
+            savedWordPairs.remove(pair);
           } else {
-            _savedWordPairs.add(pair);
+            savedWordPairs.add(pair);
           }
         });
       },
